@@ -15,8 +15,8 @@ var roomFuncs = {
               c) upgrading considerations (nothing fancy here yet)
               d) building considerations (nothing fancy here yet)
         */ 
-        roomAnalysis = roomAnalyzer(room);
-        statFuncs.roomAnalysisPrinter(roomAnalysis);
+        var roomAnalysis = roomAnalyzer.run(room);
+        statFuncs.printRoomAnalysis(roomAnalysis);
         
         //creepFuncs.spawnCreeps(roomAnalysis);
         //creepFuncs.runRoom(roomAnalysis);

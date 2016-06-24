@@ -1,4 +1,4 @@
-var spawnFuncs = require('meta.spawnFuncs');
+//var spawnFuncs = require('meta.spawnFuncs');
 
 var roleHarvester = {
 
