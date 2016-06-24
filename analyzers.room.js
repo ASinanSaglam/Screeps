@@ -1,5 +1,6 @@
 var roomAnalyzer = {
     analysis: {
+      '_room': undefined,
       'spawns': [],
       'creeps': [],
       'sources': [], 
@@ -13,6 +14,7 @@ var roomAnalyzer = {
         var sources = [];
         var enemies = [];
 
+        this.analysis._room = room;
         this.analysis['enerAvail'] = room.energyAvailable;
         this.analysis['enerCap'] = room.energyCapacityAvailable;
         this.analysis['spawns'] = room.find(FIND_MY_SPAWNS);

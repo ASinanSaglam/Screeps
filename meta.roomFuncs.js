@@ -1,4 +1,4 @@
-// var creepFuncs = require('meta.creepFuncs');
+var creepFuncs = require('meta.creepFuncs');
 var roomAnalyzer = require('analyzers.room');
 var statFuncs = require('meta.statFuncs')
 
@@ -16,10 +16,14 @@ var roomFuncs = {
               d) building considerations (nothing fancy here yet)
         */ 
         var roomAnalysis = roomAnalyzer.run(room);
+
+        // Now we have some data to work with, basic but it's a start
+        // let's use that data to inform our decisions directly
+        roomAnalysis = creepFuncs.spawnCreeps(roomAnalysis);
+        //roomAnalysis = creepFuncs.assignCreeps(roomAnalysis);
+
+        // Print the analysis
         statFuncs.printRoomAnalysis(roomAnalysis);
-        
-        //creepFuncs.spawnCreeps(roomAnalysis);
-        //creepFuncs.runRoom(roomAnalysis);
     }
 }
 
