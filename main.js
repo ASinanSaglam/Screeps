@@ -1,16 +1,17 @@
 var memFuncs = require('meta.memFuncs')
-var statFuncs = require('meta.statFuncs');
 var roomFuncs = require('meta.roomFuncs');
 
 module.exports.loop = function () {
     // First clean the memory if anything is dead
     memFuncs.cleanUp();
     
-    statFuncs.getCreepStats();
     /* I decided to try out a room-by-room strategy
-    and eventually tie it all in later */ 
+    and eventually tie it all in later.
+    I will eventually write an 'empire' analysis
+    tool to add here so I have a general idea as 
+    to what my empire is up to. */ 
     for(var curRoom in Game.rooms) {
-        console.log(curRoom)
+        console.log(curRoom);
         roomFuncs.run(Game.rooms[curRoom]);
     }
 }

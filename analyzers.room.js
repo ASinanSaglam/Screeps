@@ -1,20 +1,25 @@
-var harvestAnalyzer = require('analyzers.harvest');
-var upgradeAnalyzer = require('analyzers.upgrade');
-var buildAnalyzer = require('analyzers.build');
-
 var roomAnalyzer = {
     analysis: {
-        "harvesting":,
-        "upgrading":,
-        "building":
+      'spawns': [],
+      'creeps': [],
+      'sources': [], 
+      'enerAvail': undefined,
+      'enerCap': undefined
     },
     
     run: function(room) {
-        this.analysis['harvesting'] = harvestAnalyzer.run(room);
-        this.analysis['upgrading'] = upgradeAnalyzer.run(room);
-        this.analysis['building'] = buildAnalyzer.run(room);
+        var spawns = [];
+        var creeps = [];
+        var sources = [];
+        var enemies = [];
+
+        this.analysis['enerAvail'] = room.energyAvailable;
+        this.analysis['enerCap'] = room.energyCapacityAvailable;
+        this.analysis['spawns'] = room.find(FIND_MY_SPAWNS);
+        this.analysis['creeps'] = room.find(FIND_MY_CREEPS);
+        this.analysis['sources'] = room.find(FIND_SOURCES);
         
-        return analysis;
+        return this.analysis;
     }
 };
 
