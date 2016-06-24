@@ -1,5 +1,3 @@
-//var spawnFuncs = require('meta.spawnFuncs');
-
 var roleUpgrader = {
 
     /** @param {Creep} creep **/
@@ -12,9 +10,9 @@ var roleUpgrader = {
         }
         else {
             if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
-                creep.moveTo(creep.room.controller);
+                creep.moveTo(creep.memory.assigned);
             } else {
-                var spawn = spawnFuncs.selectClosest();
+                var spawn = Game.spawns.Spawn1;
                 creep.moveTo(spawn);
             }
         }

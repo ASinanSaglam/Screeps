@@ -1,6 +1,6 @@
 var creepFuncs = require('meta.creepFuncs');
 var roomAnalyzer = require('analyzers.room');
-var statFuncs = require('meta.statFuncs')
+var statFuncs = require('meta.statFuncs');
 
 var roomFuncs = {
     run: function(room) {
@@ -14,17 +14,19 @@ var roomFuncs = {
               b) where do we assign our units
               c) upgrading considerations (nothing fancy here yet)
               d) building considerations (nothing fancy here yet)
-        */ 
+        */
         var roomAnalysis = roomAnalyzer.run(room);
 
         // Now we have some data to work with, basic but it's a start
         // let's use that data to inform our decisions directly
         roomAnalysis = creepFuncs.spawnCreeps(roomAnalysis);
-        //roomAnalysis = creepFuncs.assignCreeps(roomAnalysis);
+        //roomAnalysis = creepFuncs.decideBuild(roomAnalysis);
+        roomAnalysis = creepFuncs.assignCreeps(roomAnalysis);
+        creepFuncs.runRoomCreeps(roomAnalysis);
 
         // Print the analysis
         statFuncs.printRoomAnalysis(roomAnalysis);
     }
-}
+};
 
 module.exports = roomFuncs;

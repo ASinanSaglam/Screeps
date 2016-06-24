@@ -1,5 +1,6 @@
 var memFuncs = require('meta.memFuncs')
 var roomFuncs = require('meta.roomFuncs');
+var creepFuncs = require('meta.creepFuncs');
 
 module.exports.loop = function () {
     // First clean the memory if anything is dead
